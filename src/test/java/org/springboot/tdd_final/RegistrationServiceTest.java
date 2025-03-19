@@ -118,7 +118,7 @@ public class RegistrationServiceTest {
         when(registrationRepository.findUpcomingCoursesByStudentId(anyLong())).thenReturn(List.of(upcomingCourse1));
 
         // When
-        List<Course> result = registrationService.registerCourse(student.getEmail(), ongoingCourse1.getId());
+        List<Course> result = registrationService.registerCourse(student.getEmail(), upcomingCourse1.getId());
 
         // Then
         verify(registrationRepository, times(1)).save(any(Registration.class));
